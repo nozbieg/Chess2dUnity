@@ -7,9 +7,9 @@ public class PieceManager : MonoBehaviour
 
     public GameObject mPiecePrefab;
 
-    private IList<PieceBase> mWhitePieces = null;
-    private IList<PieceBase> mBlackPieces = null;
-    // Start is called before the first frame update
+    private List<PieceBase> mWhitePieces = null;
+    private List<PieceBase> mBlackPieces = null;
+
 
     private string[] mPieceOrder = new string[16]
     {
@@ -29,15 +29,15 @@ public class PieceManager : MonoBehaviour
 
     public void Setup(Board board)
     {
-        mWhitePieces = CreatePieces(Color.white, new Color32(80, 124, 159, 255), board);
-        mBlackPieces = CreatePieces(Color.black, new Color32(210, 95, 64, 255), board);
+        mWhitePieces = CreatePieces(Color.white, new Color32(255, 255, 255, 255), board);
+        mBlackPieces = CreatePieces(Color.black, new Color32(1, 1, 1, 255), board);
 
         PlacePieces(1, 0, mWhitePieces, board);
         PlacePieces(6, 7, mBlackPieces, board);
 
     }
 
-    private IList<PieceBase> CreatePieces(Color teamColor, Color32 spriteColor, Board board)
+    private List<PieceBase> CreatePieces(Color teamColor, Color32 spriteColor, Board board)
     {
         var newPieces = new List<PieceBase>();
 
@@ -61,7 +61,7 @@ public class PieceManager : MonoBehaviour
 
         return newPieces;
     }
-    private void PlacePieces(int pawnRow, int royaltyRow, IList<PieceBase> pieces, Board board)
+    private void PlacePieces(int pawnRow, int royaltyRow, List<PieceBase> pieces, Board board)
     {
         for (int i = 0; i < 8; i++)
         {

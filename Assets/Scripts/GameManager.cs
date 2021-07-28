@@ -14,10 +14,4 @@ public class GameManager : MonoBehaviour
 
         mPieceManager.Setup(mBoard);
     }
-
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
 }
